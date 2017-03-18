@@ -6,7 +6,7 @@ RUN apk upgrade --update \
     && apk add git vim autoconf libmcrypt-dev libxml2-dev postgresql-dev libpng-dev libxslt-dev bzip2 bzip2-dev icu-dev g++ make ca-certificates \
     && pecl install redis-3.1.1 && docker-php-ext-enable redis \
     && pecl install xdebug-2.5.1 && docker-php-ext-enable xdebug \
-    && docker-php-ext-install bz2 zip gd mcrypt bcmath opcache intl soap pgsql pdo_pgsql xsl \
+    && docker-php-ext-install bz2 zip gd mcrypt mbstring bcmath opcache intl soap pgsql pdo_pgsql pdo_mysql xsl \
     && curl -sS "https://getcomposer.org/installer?v=1.3.1" | php && mv composer.phar /usr/bin/composer \
     && mkdir -p /etc/ssl/certs/ && update-ca-certificates --fresh \
     && apk del --purge g++ make autoconf ca-certificates \
